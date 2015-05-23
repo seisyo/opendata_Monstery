@@ -1,9 +1,8 @@
-from flask import Flask, request
+from flask import Flask, request, json
 from flask_restful import Resource, Api
 
 import requests
-from bs4 import BeautifulSoup
-import json
+# import json
 
 app = Flask(__name__)
 api = Api(app)
@@ -60,8 +59,8 @@ class powerData(Resource):
             'now':result[-1],
             'history':result
             })
-        json_output = json.dumps(results)
-        return(json_output)
+        # json_output = json.dumps(results)
+        return(json.jsonify({'data': results}))
 
 
 
